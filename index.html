@@ -1,0 +1,152 @@
+<!--
+  file: index.html
+  purpose: Main HTML shell for Pocket Classroom — loads CSS, fonts, navbar and three SPA sections:
+           Library, Author, Learn. JS modules handle dynamic rendering and behavior.
+  Notes for reader:
+    - This file is static markup only. All dynamic content (cards, forms, learn UI) is injected
+      by JS modules (js/library.js, js/author.js, js/learn.js, js/main.js, js/storage.js).
+    - Keep element IDs and data-view attributes as-is — JS relies on these exact IDs.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pocket Classroom — Astronomy</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+  <!-- Bootstrap CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+ <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+  
+  <div id="stars"><div></div></div>
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">Pocket Classroom</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end navbar-text" id="mainNav">
+     <div class="navbar-text">
+      <ul class="navbar-nav d-flex align-items-center mb-2 mb-lg-0">
+        <li class="nav-item">
+          <button class="nav-link btn btn-link text-white" data-view="library" aria-controls="library-section" aria-label="Show Library">Library</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link btn btn-link text-white" data-view="author" aria-controls="author-section" aria-label="Show Author">Author</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link btn btn-link text-white" data-view="learn" aria-controls="learn-section" aria-label="Show Learn">Learn</button>
+        </li>
+      </ul>
+      </div>
+      <div class="d-flex ms-3">
+        <button id="newCapsuleBtn" class="btn btn-outline-light me-2" title="New Capsule" aria-label="New Capsule">New Capsule</button>
+        <button id="importBtn" class="btn btn-light me-2" title="Import JSON" aria-label="Import JSON">Import</button>
+        <input type="file" id="importFileInput" accept="application/json,.json" style="display:none;">
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+
+  <!-- Main content -->
+  <main class="container my-4" id="main">
+    <!-- Library -->
+    <section id="library-section" aria-labelledby="library-heading">
+      <h2 id="library-heading" class="h4 mb-3 title-text">Library</h2>
+      <div id="library-grid" class="row g-3">
+     
+      </div>
+      <div id="library-empty" class=" mt-4" style="display:none;">
+        No capsules yet. Click "New Capsule" to create one.
+      </div>
+    </section>
+
+    <!-- Author -->
+    <section id="author-section" class="d-none" aria-labelledby="author-heading">
+      <h2 id="author-heading" class="h4 mb-3 title-text">Author</h2>
+      <div id="author-root"><!-- author UI injected by author.js --></div>
+      
+    </section>
+
+    <!-- Learn -->
+<section id="learn-section" class="d-none ">
+  <h2 id="author-heading" class="h4 mb-3 title-text">Learn</h2>
+  <div class="d-flex justify-content-between align-items-center mb-3 title-text">
+    <div id="learn-meta"></div>
+    <select id="learn-select" class="form-select w-auto form-color"></select>
+  </div>
+
+  <div class="btn-group mb-3 learn-nav " role="group">
+    <button id="tab-notes" class="btn btn-author">Notes</button>
+
+    <button id="tab-flash" class="btn btn-author">Flashcards</button>
+  
+    <button id="tab-quiz" class="btn btn-author">Quiz</button>
+  </div>
+
+  <div id="notes-view">
+  <p id="learn-description" class="glass-box mb-2"></p> 
+    <input type="text" id="notes-search" class="form-control mb-2 form-color" placeholder="Search notes...">
+  <ol id="notes-list" class="list-group list-group-numbered title-text"></ol>
+</div>
+
+  
+
+  <!-- Flashcards view -->
+ <div id="flash-view" class="d-none">
+
+  <div id="flip-wrapper" class="flip-card d-flex justify-content-center w-100">
+    <div id="flip-card" class="card text-center p-4 mb-3" role="button" tabindex="0" aria-label="Flashcard">
+      <div id="card-front" class="card-face front"></div>
+      <div id="card-back" class="card-face back"></div>
+    </div>
+  </div>
+    <div class="d-flex justify-content-between mb-2">
+      <button id="prev-card" class="btn btn-author">&laquo; Prev</button>
+      <div id="fc-counter"></div>
+      <button id="next-card" class="btn btn-author">Next &raquo;</button>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <button id="mark-known" class="btn btn-author">Known</button>
+      <div id="known-count" class=" small"></div>
+      <button id="mark-unknown" class="btn btn-author">Unknown</button>
+    </div>
+  </div>
+
+  <!-- Quiz view -->
+  <div id="quiz-view" class="d-none ">
+    <div id="quiz-container" ></div>
+  </div>
+</section>
+
+
+  </main>
+
+<!-- Bootstrap JS bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Module scripts -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

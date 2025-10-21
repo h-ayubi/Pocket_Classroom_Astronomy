@@ -1,0 +1,81 @@
+{
+  "schema": "pocket-classroom/v1",
+  "id": "cap_2025-10-20_astro_001",
+  "meta": {
+    "title": "Introduction to Stars & Stellar Life Cycles",
+    "subject": "Astronomy",
+    "level": "Beginner",
+    "desc": "Basic concepts about stars: formation, types, life cycles, and how we observe them.",
+    "createdAt": "2025-10-20T12:00:00Z",
+    "updatedAt": "2025-10-20T12:00:00Z"
+  },
+  "notes": [
+    "Stars form in cold, dense regions of molecular clouds called stellar nurseries.",
+    "Nuclear fusion of hydrogen into helium powers main-sequence stars.",
+    "A star's mass determines its life cycle and final fate (white dwarf, neutron star, black hole).",
+    "Red giants are evolved stars that have exhausted hydrogen in their cores.",
+    "Supernovae distribute heavy elements into the interstellar medium.",
+    "We study stars through spectroscopy, photometry, and parallax measurements."
+  ],
+  "flashcards": [
+    {
+      "front": "What is the primary fuel for main-sequence stars?",
+      "back": "Hydrogen (fused into helium via nuclear fusion)."
+    },
+    {
+      "front": "Where are new stars commonly formed?",
+      "back": "In molecular clouds (stellar nurseries) such as the Orion Nebula."
+    },
+    {
+      "front": "Which method measures stellar distances directly?",
+      "back": "Parallax — measuring apparent shift in position as Earth orbits the Sun."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What process powers the energy output of a main-sequence star?",
+      "choices": [
+        "Chemical burning",
+        "Nuclear fusion",
+        "Gravitational contraction",
+        "Magnetic reconnection"
+      ],
+      "answerIndex": 1,
+      "explain": "Main-sequence stars fuse hydrogen into helium in their cores, releasing energy."
+    },
+    {
+      "q": "Which remnant is left by a very massive star after a supernova?",
+      "choices": [
+        "White dwarf",
+        "Black hole",
+        "Planetary nebula",
+        "Comet"
+      ],
+      "answerIndex": 1,
+      "explain": "Very massive stars can collapse into black holes after a core-collapse supernova."
+    },
+    {
+      "q": "What observational technique gives information about a star's composition?",
+      "choices": [
+        "Photometry only",
+        "Astrometry",
+        "Spectroscopy",
+        "Timing"
+      ],
+      "answerIndex": 2,
+      "explain": "Spectroscopy splits light into wavelengths, revealing chemical signatures (absorption/emission lines)."
+    },
+    {
+      "q": "Which factor most strongly affects a star's evolution?",
+      "choices": [
+        "Its initial mass",
+        "Its distance from Earth",
+        "Its color perceived by humans",
+        "Its motion across the sky"
+      ],
+      "answerIndex": 0,
+      "explain": "A star's initial mass largely determines its internal pressure, temperature, fusion rate and thus evolution."
+    }
+  ]
+
+}
