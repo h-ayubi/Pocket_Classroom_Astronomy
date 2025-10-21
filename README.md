@@ -136,6 +136,7 @@ created specifically for **astronomy classes** and science-based learning enviro
 
 
 📄 Sample exported JSON:
+- [Download sample JSON](assets/sample-astronomy-cap.json)
 
 
 
