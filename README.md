@@ -133,7 +133,7 @@ created specifically for **astronomy classes** and science-based learning enviro
 
 
  Live demo link:
-
+(https://h-ayubi.github.io/Pocket_Classroom_Astronomy/)
 
 📄 Sample exported JSON:
 - [Download sample JSON](assets/sample-astronomy-cap.json)
@@ -141,3 +141,4 @@ created specifically for **astronomy classes** and science-based learning enviro
 
 
 Developed for offline learning — private, portable, and cosmic. 🚀
+
